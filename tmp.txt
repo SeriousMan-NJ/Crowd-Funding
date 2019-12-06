@@ -1,0 +1,11 @@
+geth --datadir datadir/ --networkid=8070 --ws --wsaddr=141.223.85.151 --wsorigins="*" --wsapi="db,eth,net,web3,personal" --rpc --rpcaddr=141.223.85.151 --rpcport=3333 --rpcapi="db,eth,net,web3,personal,web3" --nodiscover --allow-insecure-unlock console
+
+
+function checkAllBalances() {
+  var i =0;
+  eth.accounts.forEach( function(e){
+    console.log(" eth.accounts["+i+"]: " + e + " \tbalance: " +
+    web3.fromWei(eth.getBalance(e), "ether") + " ether");
+  i++;
+  })
+};
