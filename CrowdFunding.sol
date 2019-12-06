@@ -1,7 +1,7 @@
 pragma solidity ^0.4.18;
 
 interface token {
-  function transfer(address receiver, uint amount) public;
+  function transfer(address _to, uint256 _value) external;
 }
 
 contract CrowdFunding {
@@ -49,7 +49,7 @@ contract CrowdFunding {
     uint amount = msg.value;
     balanceOf[msg.sender] += amount;
     totalAmount += amount;
-    tokenReward.transfer(msg.sender, amount / price);
+    // tokenReward.transfer(msg.sender, amount / price);
     emit FundTransfer(msg.sender, amount, true);
   }
 
